@@ -2,18 +2,21 @@ package com.bbi.weatherapp;
 
 
 import android.Manifest;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.StrictMode;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
                     if (isStoragePermissionGranted())
-                        exportEmailInCSV();
+                        exportDataInCSV();
                     else
                         Toast.makeText(getApplicationContext(), "Please give storage write permission", Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
@@ -101,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
     }
 
     public boolean isStoragePermissionGranted() {
@@ -128,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             Log.v(TAG, "Permission: " + permissions[0] + "was " + grantResults[0]);
             //resume tasks needing this permission
             try {
-                exportEmailInCSV();
+                exportDataInCSV();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -156,7 +161,10 @@ public class MainActivity extends AppCompatActivity {
 
         return tempratureList;
     }
-
+private  void clearDataBase()
+{
+    SQLite.delete(TempTable.class);
+}
     private void downloadDataFromServer() {
 
 
@@ -181,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 try {
 
+                    clearDataBase();
                     for (int k = 0; k < regionList.length; k++) {
                         for (int j = 0; j < weatherList.length; j++) {
 
@@ -325,17 +334,42 @@ public class MainActivity extends AppCompatActivity {
                 handler.sendEmptyMessage(0);
 
                 progDailog.dismiss();
+                Toast.makeText(getApplicationContext(), "Data Downloading is completed", Toast.LENGTH_SHORT).show();
+
+                try {
+
+                    if (isStoragePermissionGranted())
+                        exportDataInCSV();
+                    else
+                        Toast.makeText(getApplicationContext(), "Please give storage write permission", Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         }).start();
     }
 
-    public void exportEmailInCSV() throws IOException {
+    public void exportDataInCSV() throws IOException {
         {
             id = 1;
             final NotificationManager mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-            mBuilder.setContentTitle("Data exporting...")
+            String NOTIFICATION_CHANNEL_ID = "my_channel_id_01";
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_HIGH);
+
+                // Configure the notification channel.
+                notificationChannel.setDescription("Channel description");
+                notificationChannel.enableLights(true);
+                notificationChannel.setLightColor(Color.RED);
+                notificationChannel.setVibrationPattern(new long[]{0, 1000, 500, 1000});
+                notificationChannel.enableVibration(true);
+                mNotifyManager.createNotificationChannel(notificationChannel);
+            }
+
+            final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+            mBuilder.setAutoCancel(true).setContentTitle("Data exporting...")
                     .setContentText("Exporting in progress")
                     .setSmallIcon(R.mipmap.ic_launcher);
             File folder = new File(Environment.getExternalStorageDirectory()
@@ -355,63 +389,70 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     try {
                         List<TempTable> tempratureList = getAllTemperatureList();
-                        mBuilder.setProgress(tempratureList.size(), 1, false);
-                        mNotifyManager.notify(1, mBuilder.build());
-                        FileWriter fw = new FileWriter(filename);
+                        if(tempratureList!=null&&tempratureList.size()>0) {
+                            FileWriter fw = new FileWriter(filename);
 
 
 // region_code,weather_param,year, key, value
-                        //  String[] copyArray = Arrays.copyOfRange(dataArray, 3500,dataArray.length);
-                        fw.append("region_code");
-                        fw.append(',');
-
-                        fw.append("weather_param");
-                        fw.append(',');
-
-                        fw.append("year");
-                        fw.append(',');
-
-                        fw.append("key");
-                        fw.append(',');
-
-                        fw.append("value");
-
-
-                        fw.append('\n');
-
-                        for (TempTable table : tempratureList
-                                ) {
-
-
-                            fw.append(table.region_code);
+                            //  String[] copyArray = Arrays.copyOfRange(dataArray, 3500,dataArray.length);
+                            fw.append("region_code");
                             fw.append(',');
 
-                            fw.append(table.weather_param);
+                            fw.append("weather_param");
                             fw.append(',');
 
-                            fw.append(table.year);
+                            fw.append("year");
                             fw.append(',');
 
-                            fw.append(table.key);
+                            fw.append("key");
                             fw.append(',');
 
-                            fw.append(table.value);
+                            fw.append("value");
 
 
                             fw.append('\n');
-                            System.out.println("value: " + table.value);
-                            // When the loop is finished, updates the notification
-                            mBuilder.setContentText("Download complete")
+
+                            for (TempTable table : tempratureList
+                                    ) {
+
+                                mBuilder.setProgress(tempratureList.size(), id++, false);
+                                mNotifyManager.notify(1, mBuilder.build());
+
+                                fw.append(table.region_code);
+                                fw.append(',');
+
+                                fw.append(table.weather_param);
+                                fw.append(',');
+
+                                fw.append(table.year);
+                                fw.append(',');
+
+                                fw.append(table.key);
+                                fw.append(',');
+
+                                fw.append(table.value);
+
+
+                                fw.append('\n');
+                                System.out.println("value: " + table.value);
+                                // When the loop is finished, updates the notification
+
+                            }
+                            mBuilder.setContentText("Exporting complete")
                                     // Removes the progress bar
-                                    .setProgress(tempratureList.size(), id++, false);
+                                    .setProgress(tempratureList.size(), id, false);
+
+
+                            // fw.flush();
+                            fw.close();
+
+                            mNotifyManager.notify(1, mBuilder.build());
+                            Toast.makeText(getApplicationContext(), "Data Exporting to CSV File is completed", Toast.LENGTH_SHORT).show();
 
                         }
+                        else
+                            Toast.makeText(getApplicationContext(), "Data is not available. Please download from server.", Toast.LENGTH_SHORT).show();
 
-
-                        // fw.flush();
-                        fw.close();
-
-                        mNotifyManager.notify(1, mBuilder.build());
 
                     } catch (Exception e) {
                     }
@@ -427,30 +468,40 @@ public class MainActivity extends AppCompatActivity {
         String filename = "Test.csv";
         File filelocation = new File(Environment.getExternalStorageDirectory()
                 + "/jai", filename);
-        Uri path = Uri.fromFile(filelocation);
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-// set the type to 'email'
-        emailIntent.setType("vnd.android.cursor.dir/email");
 
-        emailIntent.putExtra(Intent.EXTRA_STREAM, path);
-// the mail subject
+        if (filelocation.exists()) {
+            Uri path = Uri.fromFile(filelocation);
+            Intent intent = new Intent(Intent.ACTION_SEND);
 
-        startActivity(Intent.createChooser(emailIntent, "Send email..."));
+
+            intent.putExtra(Intent.EXTRA_STREAM, path);
+
+
+            startActivity(Intent.createChooser(intent, "Send file..."));
+        }
+        else
+            Toast.makeText(getApplicationContext(), "File not exist. Please export the file", Toast.LENGTH_SHORT).show();
+
     }
 
     void openFile() {
         String filename = "Test.csv";
         File filelocation = new File(Environment.getExternalStorageDirectory()
                 + "/jai", filename);
-        Uri path = Uri.fromFile(filelocation);
-        Intent pdfOpenintent = new Intent(Intent.ACTION_VIEW);
-        pdfOpenintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        pdfOpenintent.setDataAndType(path, "application/*");
-        try {
-            startActivity(pdfOpenintent);
-        } catch (ActivityNotFoundException e) {
+        if(filelocation.exists()) {
+            Uri path = Uri.fromFile(filelocation);
+            Intent pdfOpenintent = new Intent(Intent.ACTION_VIEW);
+            pdfOpenintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            pdfOpenintent.setDataAndType(path, "text/plain");
+            try {
+                startActivity(pdfOpenintent);
+            } catch (ActivityNotFoundException e) {
 
+            }
         }
+        else
+            Toast.makeText(getApplicationContext(), "File not exist. Please export the file", Toast.LENGTH_SHORT).show();
+
     }
 }
 

@@ -14,7 +14,7 @@
         android:id="@+id/btnDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Download Data From Server"
+        android:text="Download and Export Data"
     
         tools:ignore="MissingConstraints" />
 
