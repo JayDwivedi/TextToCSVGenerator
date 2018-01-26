@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="download_data_from_server">Download and export data</string>
+    <string name="export_to_csv">Export To CSV</string>
+    <string name="send_file">Send File</string>
+    <string name="open_file">Open File</string>
 </resources>

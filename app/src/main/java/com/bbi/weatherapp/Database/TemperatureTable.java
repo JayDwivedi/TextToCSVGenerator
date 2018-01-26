@@ -13,7 +13,7 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 
 
 @Table(database = DatabaseModule.class)
-public class TempTable extends BaseModel {
+public class TemperatureTable extends BaseModel {
     @Column
     @PrimaryKey(autoincrement = true)
     public long id;

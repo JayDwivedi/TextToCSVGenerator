@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.bbi.weatherapp.MainActivity">
-
 
 
     <Button
         android:id="@+id/btnDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Download Data From Server"
-    
+        android:text="@string/download_data_from_server"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:layout_marginTop="20dp"
         android:id="@+id/btnExport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Export To CSV"
-     
-        tools:ignore="MissingConstraints" />
-    <Button
         android:layout_marginTop="20dp"
+        android:text="@string/export_to_csv"
+
+        tools:ignore="MissingConstraints" />
+
+    <Button
         android:id="@+id/btnSendFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send File"
+        android:layout_marginTop="20dp"
+        android:text="@string/send_file"
 
         tools:ignore="MissingConstraints" />
+
     <Button
-        android:layout_marginTop="20dp"
         android:id="@+id/btnOpenFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Open File"
+        android:layout_marginTop="20dp"
+        android:text="@string/open_file"
 
         tools:ignore="MissingConstraints" />
 
