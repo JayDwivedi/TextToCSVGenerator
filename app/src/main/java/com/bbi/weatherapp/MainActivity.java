@@ -198,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
     private void downloadDataFromServer() {
 
 
-        final String[] regionList = {/*"UK", "England", "Scotland", */"Wales"};
-        final String[] weatherList = {/*"Tmax", "Tmin", */"Tmean", "Sunshine", "Rainfall"};
+        final String[] regionList = {"UK", "England", "Scotland", "Wales"};
+        final String[] weatherList = {"Tmax", "Tmin", "Tmean", "Sunshine", "Rainfall"};
 
 
         // show waiting screen

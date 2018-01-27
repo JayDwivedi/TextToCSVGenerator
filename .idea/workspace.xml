@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e11fb6bb-3d08-47e2-8cb1-1fbbe82f8c86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bbi/weatherapp/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bbi/weatherapp/MainActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +54,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bbi/weatherapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="190" column="30" lean-forward="true" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
+            <state relative-caret-position="226">
+              <caret line="201" column="38" lean-forward="false" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1795#2154#0" expanded="true" />
@@ -67,23 +68,23 @@
                 <element signature="e#3667#3668#0" expanded="true" />
                 <element signature="e#6519#6520#0" expanded="true" />
                 <element signature="e#6572#6573#0" expanded="true" />
-                <element signature="e#6862#6890#0" expanded="true" />
-                <element signature="e#7244#15757#0" expanded="true" />
-                <element signature="e#7555#7811#0" expanded="true" />
-                <element signature="e#7810#7811#0" expanded="true" />
-                <element signature="e#8679#8947#0" expanded="true" />
-                <element signature="e#8946#8947#0" expanded="true" />
-                <element signature="e#14874#15126#0" expanded="true" />
-                <element signature="e#15125#15126#0" expanded="true" />
-                <element signature="e#15319#15618#0" expanded="true" />
-                <element signature="e#15617#15618#0" expanded="true" />
-                <element signature="e#15756#15757#0" expanded="true" />
-                <element signature="e#17490#20799#0" expanded="true" />
-                <element signature="e#19871#20207#0" expanded="true" />
-                <element signature="e#20206#20207#0" expanded="true" />
-                <element signature="e#20324#20651#0" expanded="true" />
-                <element signature="e#20650#20651#0" expanded="true" />
-                <element signature="e#20798#20799#0" expanded="true" />
+                <element signature="e#6854#6882#0" expanded="true" />
+                <element signature="e#7236#15749#0" expanded="true" />
+                <element signature="e#7547#7803#0" expanded="true" />
+                <element signature="e#7802#7803#0" expanded="true" />
+                <element signature="e#8671#8939#0" expanded="true" />
+                <element signature="e#8938#8939#0" expanded="true" />
+                <element signature="e#14866#15118#0" expanded="true" />
+                <element signature="e#15117#15118#0" expanded="true" />
+                <element signature="e#15311#15610#0" expanded="true" />
+                <element signature="e#15609#15610#0" expanded="true" />
+                <element signature="e#15748#15749#0" expanded="true" />
+                <element signature="e#17482#20791#0" expanded="true" />
+                <element signature="e#19863#20199#0" expanded="true" />
+                <element signature="e#20198#20199#0" expanded="true" />
+                <element signature="e#20316#20643#0" expanded="true" />
+                <element signature="e#20642#20643#0" expanded="true" />
+                <element signature="e#20790#20791#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2316,7 +2317,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516986872148" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517041463120" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2364,7 +2365,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516986872148" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517041463120" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2560,7 +2561,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516986872150" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517041463121" />
       </method>
     </configuration>
     <list size="1">
@@ -2596,10 +2597,19 @@
       <option name="presentableId" value="Default" />
       <updated>1516722851494</updated>
     </task>
+    <task id="LOCAL-00001" summary="add files">
+      <created>1516986893274</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1516986893274</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="23" width="1361" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -2621,7 +2631,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17361638" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17361638" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Android WiFi ADB" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -2638,6 +2648,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2820,8 +2834,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bbi/weatherapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="190" column="30" lean-forward="true" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
+        <state relative-caret-position="226">
+          <caret line="201" column="38" lean-forward="false" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1795#2154#0" expanded="true" />
@@ -2834,23 +2848,23 @@
             <element signature="e#3667#3668#0" expanded="true" />
             <element signature="e#6519#6520#0" expanded="true" />
             <element signature="e#6572#6573#0" expanded="true" />
-            <element signature="e#6862#6890#0" expanded="true" />
-            <element signature="e#7244#15757#0" expanded="true" />
-            <element signature="e#7555#7811#0" expanded="true" />
-            <element signature="e#7810#7811#0" expanded="true" />
-            <element signature="e#8679#8947#0" expanded="true" />
-            <element signature="e#8946#8947#0" expanded="true" />
-            <element signature="e#14874#15126#0" expanded="true" />
-            <element signature="e#15125#15126#0" expanded="true" />
-            <element signature="e#15319#15618#0" expanded="true" />
-            <element signature="e#15617#15618#0" expanded="true" />
-            <element signature="e#15756#15757#0" expanded="true" />
-            <element signature="e#17490#20799#0" expanded="true" />
-            <element signature="e#19871#20207#0" expanded="true" />
-            <element signature="e#20206#20207#0" expanded="true" />
-            <element signature="e#20324#20651#0" expanded="true" />
-            <element signature="e#20650#20651#0" expanded="true" />
-            <element signature="e#20798#20799#0" expanded="true" />
+            <element signature="e#6854#6882#0" expanded="true" />
+            <element signature="e#7236#15749#0" expanded="true" />
+            <element signature="e#7547#7803#0" expanded="true" />
+            <element signature="e#7802#7803#0" expanded="true" />
+            <element signature="e#8671#8939#0" expanded="true" />
+            <element signature="e#8938#8939#0" expanded="true" />
+            <element signature="e#14866#15118#0" expanded="true" />
+            <element signature="e#15117#15118#0" expanded="true" />
+            <element signature="e#15311#15610#0" expanded="true" />
+            <element signature="e#15609#15610#0" expanded="true" />
+            <element signature="e#15748#15749#0" expanded="true" />
+            <element signature="e#17482#20791#0" expanded="true" />
+            <element signature="e#19863#20199#0" expanded="true" />
+            <element signature="e#20198#20199#0" expanded="true" />
+            <element signature="e#20316#20643#0" expanded="true" />
+            <element signature="e#20642#20643#0" expanded="true" />
+            <element signature="e#20790#20791#0" expanded="true" />
           </folding>
         </state>
       </provider>
